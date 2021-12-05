@@ -25,6 +25,9 @@ public class PeekingMappingCollectingTestor{
         groupingBy();
         groupingBy_counting();
         multiLevel_groupingBy();
+        System.out.println(doStringSum(new String[]{"Parallel", "streams", "are", "great"}));  //map-reduce pattern
+
+        
     }
     
     public static void peeking(){
@@ -83,6 +86,14 @@ Herrera, Esteban. Java 8 Programmer II Study Guide: Exam 1Z0-809 (p. 428). Kindl
             );
 
         out.println(map.toString());
+    }
+
+    //Map-reduce pattern
+    public static Integer doStringSum(String[] arr){
+        int length = arr.length;
+        mapToInt(s -> s.length()).
+            reduce(0, (sum, strLength) ->sum + strLength);
+        return length;
     }
     
     
